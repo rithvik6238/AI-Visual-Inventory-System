@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 231 47% 5%; /* #050816 */
+    --foreground: 210 40% 98%;
+
+    --card: 223 47% 8%; /* #0B1120 */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 223 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 199 89% 48%; /* cyan/electric blue */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 100%; /* Using rgba(255,255,255,0.08) via tailwind alpha */
+    --input: 217.2 32.6% 17.5%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border/10; /* border opacity 0.08 ~ 10% */
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/60 backdrop-blur-md border border-white/10;
+  }
+  .glow-border {
+    @apply relative before:absolute before:inset-0 before:-z-10 before:rounded-[inherit] before:p-[1px] before:bg-gradient-to-r before:from-primary/50 before:to-transparent;
+  }
+  .text-glow {
+    text-shadow: 0 0 10px theme('colors.primary.DEFAULT');
+  }
+}
